@@ -7,7 +7,11 @@ gem 'pg', '~> 0.15'
 gem 'rails', '4.2.5'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'turbolinks'
-gem 'uglifier', '>= 1.3.0'
+
+group :assets do
+  gem 'therubyracer'
+  gem 'uglifier', '>= 1.3.0'
+end
 
 group :development, :test do
   gem 'awesome_print'
