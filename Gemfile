@@ -4,7 +4,7 @@ gem 'jquery-rails'
 gem 'less-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.15'
-gem 'rails', '4.2.5'
+gem 'rails', '4.2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'turbolinks'
 
@@ -18,6 +18,7 @@ group :development, :test do
   gem 'byebug'
   gem 'pry'
   gem 'pry-rails'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -32,5 +33,7 @@ end
 group :test do
   gem 'factory_girl_rails'
   gem 'fixture_builder'
+  gem 'rspec-instafail', require: false
+  gem 'shoulda-matchers'
 end
 
