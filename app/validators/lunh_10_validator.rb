@@ -29,13 +29,4 @@ class Luhn10Validator < ActiveModel::EachValidator
   def lunh_valid?(card_number)
     luhn_checksum(card_number) == 0
   end
-
-  def calculate_luhn(partial_card_number)
-    check_digit = luhn_checksum(partial_card_number * 10)
-    if check_digit == 0
-      check_digit
-    else
-      10 - check_digit
-    end
-  end
 end
