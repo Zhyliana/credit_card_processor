@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: line_items
+# Table name: transactions
 #
 #  id             :integer          not null, primary key
 #  credit_card_id :integer          not null
@@ -9,7 +9,7 @@
 #  updated_at     :datetime         not null
 #
 
-class LineItem < ActiveRecord::Base
+class Transaction < ActiveRecord::Base
   belongs_to :credit_card
 
   validates :credit_card_id, presence: true, numericality: { only_integer: true }

@@ -12,7 +12,7 @@
 require "lunh_10_validator"
 
 class CreditCard < ActiveRecord::Base
-  has_many :line_items,  dependent: :destroy
+  has_many :transactions,  dependent: :destroy
 
   validates :given_name,  presence: true
 
@@ -31,7 +31,7 @@ class CreditCard < ActiveRecord::Base
   end
 
   def balance
-    return 0 if self.line_items.empty?
-    self.line_items.sum(:amount)
+    return 0 if self.transactions.empty?
+    self.transactions.sum(:amount)
   end
 end

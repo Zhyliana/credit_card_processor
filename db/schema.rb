@@ -26,13 +26,13 @@ ActiveRecord::Schema.define(version: 20151118081422) do
 
   add_index "credit_cards", ["card_number"], name: "index_credit_cards_on_card_number", unique: true, using: :btree
 
-  create_table "line_items", force: :cascade do |t|
+  create_table "transactions", force: :cascade do |t|
     t.integer  "credit_card_id", null: false
     t.integer  "amount",         null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
 
-  add_index "line_items", ["credit_card_id"], name: "index_line_items_on_credit_card_id", using: :btree
+  add_index "transactions", ["credit_card_id"], name: "index_transactions_on_credit_card_id", using: :btree
 
 end

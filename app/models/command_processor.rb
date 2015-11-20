@@ -50,8 +50,8 @@ class CommandProcessor
     amount *= -1 if action == "credit"
 
     credit_card = CreditCard.find_by_given_name(name)
-    line_item = LineItem.new({ amount: amount, credit_card: credit_card })
+    transaction = Transaction.new({ amount: amount, credit_card: credit_card })
 
-    update_summary(name, credit_card.balance) if line_item.try(:save)
+    update_summary(name, credit_card.balance) if transaction.try(:save)
   end
 end

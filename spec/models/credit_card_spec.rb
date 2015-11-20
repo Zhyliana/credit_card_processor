@@ -14,7 +14,7 @@ describe CreditCard do
   let(:credit_card) { FactoryGirl.create(:credit_card) }
 
   describe "associations" do
-    it { expect(credit_card).to have_many(:line_items) }
+    it { expect(credit_card).to have_many(:transactions) }
   end
 
   describe "validations" do
@@ -43,17 +43,17 @@ describe CreditCard do
     end
 
     describe ".balance" do
-      context "with line items" do
-        it "returns sum of line item amounts" do
-          LineItem.create(amount: 10, credit_card: credit_card)
-          LineItem.create(amount: 5, credit_card: credit_card)
-          LineItem.create(amount: -6, credit_card: credit_card)
+      context "with transactions" do
+        it "returns sum of transaction amounts" do
+          Transaction.create(amount: 10, credit_card: credit_card)
+          Transaction.create(amount: 5, credit_card: credit_card)
+          Transaction.create(amount: -6, credit_card: credit_card)
 
           expect(credit_card.balance).to eq(9)
         end
       end
 
-      context "without line items" do
+      context "without transaction" do
         it "returns 0" do
           expect(credit_card.balance).to eq(0)
         end
@@ -62,8 +62,8 @@ describe CreditCard do
 
     describe ".available_credit" do
       it "returns difference between limit and balance" do
-        LineItem.create(amount: 5, credit_card: credit_card)
-        LineItem.create(amount: -6, credit_card: credit_card)
+        Transaction.create(amount: 5, credit_card: credit_card)
+        Transaction.create(amount: -6, credit_card: credit_card)
 
         expect(credit_card.available_credit).to eq(101)
       end

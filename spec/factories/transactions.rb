@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: line_items
+# Table name: transactions
 #
 #  id             :integer          not null, primary key
 #  credit_card_id :integer          not null
@@ -10,7 +10,7 @@
 #
 
 FactoryGirl.define do
-  factory :line_item, class: LineItem do
+  factory :transaction, class: Transaction do
     credit_card { FactoryGirl.create(:credit_card) }
     amount 10
   end
