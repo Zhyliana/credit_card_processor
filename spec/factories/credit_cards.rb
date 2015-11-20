@@ -6,7 +6,6 @@
 #  given_name  :string           not null
 #  card_number :string(19)       not null
 #  limit       :integer          not null
-#  balance     :integer          default(0), not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
@@ -15,7 +14,6 @@ FactoryGirl.define do
   factory :credit_card, class: CreditCard do
     given_name 'Buster'
     limit 100
-    balance 0
     card_number '4111111111111111'
   end
 

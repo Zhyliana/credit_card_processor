@@ -3,7 +3,7 @@
 # Table name: line_items
 #
 #  id             :integer          not null, primary key
-#  credit_card_id :integer
+#  credit_card_id :integer          not null
 #  amount         :integer          not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null

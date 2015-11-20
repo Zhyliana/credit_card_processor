@@ -17,18 +17,17 @@ ActiveRecord::Schema.define(version: 20151118081422) do
   enable_extension "plpgsql"
 
   create_table "credit_cards", force: :cascade do |t|
-    t.string   "given_name",                         null: false
-    t.string   "card_number", limit: 19,             null: false
-    t.integer  "limit",                              null: false
-    t.integer  "balance",                default: 0, null: false
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.string   "given_name",             null: false
+    t.string   "card_number", limit: 19, null: false
+    t.integer  "limit",                  null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "credit_cards", ["card_number"], name: "index_credit_cards_on_card_number", unique: true, using: :btree
 
   create_table "line_items", force: :cascade do |t|
-    t.integer  "credit_card_id"
+    t.integer  "credit_card_id", null: false
     t.integer  "amount",         null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false

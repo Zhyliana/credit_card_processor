@@ -1,7 +1,7 @@
 class Luhn10Validator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
     unless lunh_valid?(value)
-      record.errors[attribute] << 'Invalid card number'
+      record.errors[attribute] << 'must be Luhn10 valid'
     end
   end
 

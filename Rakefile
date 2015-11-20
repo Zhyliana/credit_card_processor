@@ -4,3 +4,10 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+
+if %w(development test).include?(Rails.env)
+  desc "start the credit card processor in the console"
+  task :start do
+    sh 'bin/run'
+  end
+end

@@ -1,8 +1,8 @@
 class LineItem < ActiveRecord::Migration
   def change
     create_table :line_items do |t|
-      t.belongs_to :credit_card
-      t.integer :amount,  null: false
+      t.integer :credit_card_id, null: false
+      t.integer :amount,         null: false
 
       t.timestamps  null: false
     end

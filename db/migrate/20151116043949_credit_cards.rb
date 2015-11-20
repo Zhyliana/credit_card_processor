@@ -4,7 +4,6 @@ class CreditCards < ActiveRecord::Migration
       t.string  :given_name,  null: false
       t.string  :card_number, null: false, limit: 19, unique: true
       t.integer :limit,       null: false
-      t.integer :balance,     null: false, default: 0
 
       t.timestamps            null: false
     end
