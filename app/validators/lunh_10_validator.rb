@@ -1,14 +1,14 @@
 class Luhn10Validator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
     unless lunh_valid?(value)
-      record.errors[attribute] << 'must be Luhn10 valid'
+      record.errors[attribute] << "must be Luhn10 valid"
     end
   end
 
   private
 
   def digits_of(number)
-    number.to_s.split('').map(&:to_i)
+    number.to_s.split("").map(&:to_i)
   end
 
   def luhn_checksum(card_number)

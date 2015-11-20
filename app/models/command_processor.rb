@@ -19,35 +19,35 @@ class CommandProcessor
   private
 
   def parse(transaction)
-    args = transaction.split(' ')
+    args = transaction.split(" ")
     action =  args[0].downcase
     options = {
         given_name: args[1],
     }
-    if action == 'add'
+    if action == "add"
       options[:card_number] = args[2]
-      options[:limit] = args[3].gsub!(/\W+/, '').to_i
+      options[:limit] = args[3].gsub!(/\W+/, "").to_i
       add_credit_card(options)
-    elsif ['charge', 'credit'].include?(action)
-      options[:amount] = args[2].gsub!(/\W+/, '').to_i
+    elsif ["charge", "credit"].include?(action)
+      options[:amount] = args[2].gsub!(/\W+/, "").to_i
       create_transaction(options, action)
     end
   end
 
-  def update_summary(name, report='error')
+  def update_summary(name, report="error")
     @summaries[name] = report
   end
 
   def add_credit_card(cc_params)
     credit_card = CreditCard.new(cc_params)
-    report = credit_card.try(:save) ? credit_card.balance : 'error'
+    report = credit_card.try(:save) ? credit_card.balance : "error"
 
     update_summary(credit_card.given_name, report)
   end
 
   def create_transaction(options, action)
     name, amount = options[:given_name], options[:amount]
-    amount *= -1 if action == 'credit'
+    amount *= -1 if action == "credit"
 
     credit_card = CreditCard.find_by_given_name(name)
     line_item = LineItem.new({ amount: amount, credit_card: credit_card })

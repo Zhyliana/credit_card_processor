@@ -1,4 +1,3 @@
 #!/bin/bash
 
-bundle install
 bin/rails runner CommandImporter.run $1

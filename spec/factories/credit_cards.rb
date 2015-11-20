@@ -16,8 +16,4 @@ FactoryGirl.define do
     limit 100
     card_number '4111111111111111'
   end
-
-  trait :luhn_10_invalid do
-    card_number '1234567890123456'
-  end
 end

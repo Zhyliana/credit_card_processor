@@ -9,7 +9,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
-require 'lunh_10_validator'
+require "lunh_10_validator"
 
 class CreditCard < ActiveRecord::Base
   has_many :line_items,  dependent: :destroy

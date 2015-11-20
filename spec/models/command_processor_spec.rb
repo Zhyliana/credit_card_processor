@@ -10,10 +10,14 @@ describe CommandProcessor do
       "Credit Quincy $200\n",
   ]}
 
-  let(:expected_summary) { "Lisa: $-93\nQuincy: error\nTom: $500\n" }
+  let(:expected_summary) {
+      "Lisa: $-93\n" +
+      "Quincy: error\n" +
+      "Tom: $500\n"
+  }
 
   describe ".import" do
-    it 'processes an array of transactions' do
+    it "processes an array of transactions" do
       expect(CommandProcessor.new.import(sample_transactions).summary_string).to eq(expected_summary)end
   end
 end

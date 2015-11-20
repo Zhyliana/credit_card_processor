@@ -5,7 +5,7 @@ class CommandImporter
       summary = "No transactions. Goodbye! \n"
       puts "Type ':wq' to save and exit"
 
-      until (input = STDIN.gets.chomp).downcase == ':wq'
+      until (input = STDIN.gets.chomp).downcase == ":wq"
         commands << input
       end
 
