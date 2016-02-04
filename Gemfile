@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'less-rails'
 gem 'pg', '~> 0.15'
 gem 'rails', '4.2.0'
+gem 'therubyracer'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
