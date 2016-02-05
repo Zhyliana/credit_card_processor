@@ -1,4 +1,5 @@
 CreditCardProcessor::Application.routes.draw do
-  root to: 'home#home'
+  root to: 'application#home'
   resources :credit_cards
+  resources :transactions
 end

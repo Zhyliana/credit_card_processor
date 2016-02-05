@@ -1,0 +1,21 @@
+{
+  "name": "creditCardProcessor",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npm install; open http://localhost:8000; ruby -run -ehttpd . -p8000",
+    "test": "npm install; node_modules/karma/bin/karma start",
+    "postinstall": "node_modules/.bin/bower install"
+  },
+  "dependencies": {
+    "bower": "^1.3.12"
+  },
+  "devDependencies": {
+    "karma": "^0.13.16",
+    "karma-chrome-launcher": "^0.1.5",
+    "karma-jasmine": "^0.2.3",
+    "karma-sinon": "~1.0.4",
+    "karma-sinon-chai": "~0.3.0",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-spec-reporter": "0.0.19"
+  }
+}

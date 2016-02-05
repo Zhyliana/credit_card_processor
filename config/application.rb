@@ -15,6 +15,7 @@ module CreditCardProcessor
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    config.assets.precompile += %w( credit_card_processor.css credit_card_processor.js )
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
+    config.assets.precompile += %w( credit_card_processor.css credit_card_processor.js app.js)
   end
 end
